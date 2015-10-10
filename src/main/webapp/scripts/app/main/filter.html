@@ -6,7 +6,7 @@
             <select class="form-control"
                     id="field_categorie"
                     name="categorie"
-                    ng-model="livre.categorie"
+                    ng-model="filter.categorie"
                     ng-options="categorie as categorie.id for categorie in categories track by categorie.id">
                 <option value=""></option>
             </select>
@@ -16,7 +16,7 @@
             <select class="form-control"
                     id="field_age"
                     name="age"
-                    ng-model="livre.age"
+                    ng-model="filter.age"
                     ng-options="age as age.id for age in ages track by age.id">
                 <option value=""></option>
             </select>
@@ -27,7 +27,7 @@
                    class="form-control"
                    name="coupCoeur"
                    id="field_coupCoeur"
-                   ng-model="livre.coupCoeur"
+                   ng-model="filter.coupCoeur"
             >
         </div>
     </div>
@@ -38,7 +38,7 @@
                    class="form-control"
                    name="titre"
                    id="field_titre"
-                   ng-model="livre.titre">
+                   ng-model="filter.titre">
         </div>
     </div>
     <div class="row">
@@ -48,7 +48,7 @@
                    class="form-control"
                    name="auteurs"
                    id="field_auteurs"
-                   ng-model="livre.auteurs">
+                   ng-model="filter.auteurs">
         </div>
         <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.illustrateur"
@@ -57,17 +57,18 @@
                    class="form-control"
                    name="illustrateur"
                    id="field_illustrateur"
-                   ng-model="livre.illustrateur">
+                   ng-model="filter.illustrateur">
         </div>
         <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.editeur" for="field_editeur">editeur</label>
             <select class="form-control"
                     id="field_editeur"
                     name="editeur"
-                    ng-model="livre.editeur"
+                    ng-model="filter.editeur"
                     ng-options="editeur as editeur.id for editeur in editeurs track by editeur.id">
                 <option value=""></option>
             </select>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary" translate="Filtrer">Filter</button>
 </form>
