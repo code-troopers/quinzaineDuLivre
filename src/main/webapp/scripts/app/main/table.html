@@ -1,19 +1,21 @@
-<div ng-repeat="livre in livres | filter: filterFunction">
-    <div class="row livre">
-        <div class="col-md-3">
-            <img class="cover" src="{{livre.urlImage}}"/>
-        </div>
-        <div class="col-md-9">
-            <H1 class="title">{{livre.id}}. {{livre.titre}}</H1>
+<div class="row">
+    <div ng-repeat="livre in livres | filter: filterFunction">
+        <div class="livre col-md-12">
+            <div class="col-md-3">
+                <img class="cover" src="{{livre.urlImage}}"/>
+            </div>
+            <div class="col-md-9">
+                <H1 class="title">{{livre.id}}. {{livre.titre}}</H1>
 
-            <H3 class="author">{{livre.auteurs}} {{livre.illustrateur}}</H3>
+                <H3 class="author">{{livre.auteurs}} {{livre.illustrateur}}</H3>
 
-            <div class="resume">{{livre.resume}}</div>
-            <div class="comments">{{livre.commentaires}}</div>
-            Categorie : {{livre.categorie.libelle}}<br/>
-            Age : {{livre.age.libelle}}<br/>
-            Editeur : {{livre.editeur.nom}}<br/>
-            Coeur : {{livre.coupCoeur}}<br/>
+                <div class="resume">{{livre.resume}}</div>
+                <div class="comments">{{livre.commentaires}}</div>
+                Categorie : {{livre.categorie.libelle}}<br/>
+                Age : {{livre.age.libelle}}<br/>
+                Editeur : {{livre.editeur.nom}}<br/>
+                Coeur : {{livre.coupCoeur}}<br/>
+            </div>
         </div>
     </div>
 </div>
