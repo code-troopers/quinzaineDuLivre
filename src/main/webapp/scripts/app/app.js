@@ -17,7 +17,7 @@ angular.module('quinzaineDuLivreApp', ['LocalStorageModule', 'tmh.dynamicLocale'
 
             // Update the language
             Language.getCurrent().then(function (language) {
-                $translate.use(language);
+                $translate.use('fr');
             });
 
         });
@@ -90,7 +90,6 @@ angular.module('quinzaineDuLivreApp', ['LocalStorageModule', 'tmh.dynamicLocale'
         $translateProvider.useLoader('$translatePartialLoader', {
             urlTemplate: 'i18n/{lang}/{part}.json'
         });
-
         $translateProvider.preferredLanguage('fr');
         $translateProvider.useCookieStorage();
         $translateProvider.useSanitizeValueStrategy('escaped');
