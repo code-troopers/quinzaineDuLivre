@@ -27,7 +27,9 @@
         <div class="maincover" ng-if="MAINPAGE" >
             <img src="assets/images/couverture.png"/>
         </div>
-        <div class="container">
+        <div ng-class="{
+        container: MAINPAGE
+        }">
             <div class="well" ui-view="content"></div>
 
             <div class="footer">
