@@ -48,17 +48,51 @@ angular.module('quinzaineDuLivreApp')
             return angular.isDefined(input) && input != null && input != "";
         }
 
+        function isObjectValueDefined(field) {
+            return angular.isDefined(field) && field != null;
+        }
+
         $scope.filterFunction = function (element) {
             var noFiltersActive = true;
+            if (isFilterSetted($scope.filter.categorie)) {
+                noFiltersActive = false;
+                if (isObjectValueDefined(element.categorie) && element.categorie.id == $scope.filter.categorie.id) {
+                    return true;
+                }
+            }
+            if (isFilterSetted($scope.filter.age)) {
+                noFiltersActive = false;
+                if (isObjectValueDefined(element.age) && element.age.id == $scope.filter.age.id) {
+                    return true;
+                }
+            }
+            if (isFilterSetted($scope.filter.coupCoeur)) {
+                noFiltersActive = false;
+                if (element.coupCoeur == true) {
+                    return true;
+                }
+            }
             if (isFilterSetted($scope.filter.titre)) {
                 noFiltersActive = false;
-                if (angular.isDefined(element.titre) && element.titre != null && element.titre.match(new RegExp($scope.filter.titre, "i"))) {
+                if (isObjectValueDefined(element.titre) && element.titre.match(new RegExp($scope.filter.titre, "i"))) {
                     return true;
                 }
             }
             if (isFilterSetted($scope.filter.editeur)) {
                 noFiltersActive = false;
-                if (angular.isDefined(element.editeur) && element.editeur != null && element.editeur.id == $scope.filter.editeur.id) {
+                if (isObjectValueDefined(element.editeur) && element.editeur.id == $scope.filter.editeur.id) {
+                    return true;
+                }
+            }
+            if (isFilterSetted($scope.filter.auteurs)) {
+                noFiltersActive = false;
+                if (isObjectValueDefined(element.auteurs) && element.auteurs.match(new RegExp($scope.filter.auteurs, "i"))) {
+                    return true;
+                }
+            }
+            if (isFilterSetted($scope.filter.illustrateur)) {
+                noFiltersActive = false;
+                if (isObjectValueDefined(element.illustrateur) && element.illustrateur.match(new RegExp($scope.illustrateur.auteurs, "i"))) {
                     return true;
                 }
             }
