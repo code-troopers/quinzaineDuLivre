@@ -7,7 +7,17 @@ angular.module('quinzaineDuLivreApp')
             $scope.isAuthenticated = Principal.isAuthenticated;
         });
     })
-    .controller('TableListeController', function ($scope, Principal, AllLivres, ParseLinks) {
+    .controller('TableListeController', function ($scope, Principal, AllLivres, AllAges, AllCategories, AllEditeurs, ParseLinks) {
+        AllCategories.query({}, function (result) {
+            $scope.categories = result;
+        });
+        AllAges.query({}, function (result) {
+            $scope.ages = result;
+        });
+        AllEditeurs.query({}, function (result) {
+            $scope.editeurs = result;
+        });
+
         $scope.filter = {};
         $scope.livres = [];
         $scope.page = 0;

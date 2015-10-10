@@ -13,4 +13,9 @@ angular.module('quinzaineDuLivreApp')
             },
             'update': { method:'PUT' }
         });
+    })
+    .factory('AllEditeurs', function ($resource, DateUtils) {
+        return $resource('api/public/editeurs/', {}, {
+            'query': { method: 'GET', isArray: true}
+        });
     });

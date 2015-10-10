@@ -13,4 +13,9 @@ angular.module('quinzaineDuLivreApp')
             },
             'update': { method:'PUT' }
         });
+    })
+    .factory('AllAges', function ($resource, DateUtils) {
+        return $resource('api/public/ages/', {}, {
+            'query': { method: 'GET', isArray: true}
+        });
     });

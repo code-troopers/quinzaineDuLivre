@@ -7,7 +7,7 @@
                     id="field_categorie"
                     name="categorie"
                     ng-model="filter.categorie"
-                    ng-options="categorie as categorie.id for categorie in categories track by categorie.id">
+                    ng-options="categorie as categorie.libelle for categorie in categories track by categorie.id">
                 <option value=""></option>
             </select>
         </div>
@@ -17,7 +17,7 @@
                     id="field_age"
                     name="age"
                     ng-model="filter.age"
-                    ng-options="age as age.id for age in ages track by age.id">
+                    ng-options="age as age.libelle for age in ages track by age.id">
                 <option value=""></option>
             </select>
         </div>
@@ -65,7 +65,7 @@
                     id="field_editeur"
                     name="editeur"
                     ng-model="filter.editeur"
-                    ng-options="editeur as editeur.id for editeur in editeurs track by editeur.id">
+                    ng-options="editeur as editeur.nom for editeur in editeurs track by editeur.id">
                 <option value=""></option>
             </select>
         </div>

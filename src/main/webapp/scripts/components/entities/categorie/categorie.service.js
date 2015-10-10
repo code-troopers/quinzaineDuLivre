@@ -13,4 +13,9 @@ angular.module('quinzaineDuLivreApp')
             },
             'update': { method:'PUT' }
         });
+    })
+    .factory('AllCategories', function ($resource, DateUtils) {
+        return $resource('api/public/categories/', {}, {
+            'query': { method: 'GET', isArray: true}
+        });
     });

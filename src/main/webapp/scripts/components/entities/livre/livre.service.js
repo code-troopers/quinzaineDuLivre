@@ -3,6 +3,7 @@
 angular.module('quinzaineDuLivreApp')
     .factory('Livre', function ($resource, DateUtils) {
         return $resource('api/livres/:id', {}, {
+            'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
@@ -14,7 +15,7 @@ angular.module('quinzaineDuLivreApp')
         });
     })
     .factory('AllLivres', function ($resource, DateUtils) {
-        return $resource('api/allLivres/', {}, {
+        return $resource('api/public/livres/', {}, {
             'query': { method: 'GET', isArray: true}
         });
     });
