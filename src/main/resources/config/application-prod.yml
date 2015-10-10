@@ -15,8 +15,8 @@ spring:
         active: prod
     datasource:
         driver-class-name: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-        url: jdbc:mysql://localhost:3306/quinzaineDuLivre?useUnicode=true&characterEncoding=utf8
-        name: 
+        url: jdbc:mysql://mysqlhost:3306/quinzaineDuLivre?useUnicode=true&characterEncoding=utf8
+        name:
         username: root
         password:
     jpa:
