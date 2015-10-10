@@ -1,7 +1,7 @@
 package org.fol37.quinzainedulivre.repository;
 
 import org.fol37.quinzainedulivre.domain.Editeur;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface EditeurRepository extends JpaRepository<Editeur,Long> {
 
+
+    List<Editeur> findByNom(String nom);
 }

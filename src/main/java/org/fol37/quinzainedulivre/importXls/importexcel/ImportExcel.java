@@ -1,16 +1,19 @@
-package net.vibrac.quinzaine.importexcel;
+package org.fol37.quinzainedulivre.importXls.importexcel;
 
-import net.vibrac.quinzaine.db.Age;
-import net.vibrac.quinzaine.db.Categorie;
-import net.vibrac.quinzaine.db.Editeur;
-import net.vibrac.quinzaine.db.Livre;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.fol37.quinzainedulivre.domain.Age;
+import org.fol37.quinzainedulivre.domain.Categorie;
+import org.fol37.quinzainedulivre.domain.Editeur;
+import org.fol37.quinzainedulivre.domain.Livre;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import javax.enterprise.context.RequestScoped;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,23 +22,23 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Geoffroy Vibrac on 10/10/2015.
- */
 
+@Component
 public class ImportExcel {
 
+    private final Logger log = LoggerFactory.getLogger(ImportExcel.class);
 
     @Inject
     DbService dbService;
-
     @Inject
     LivreService livreService;
 
-    public void doImport(boolean addLivre){
-
+    @PostConstruct
+    public void doImport() {
+        log.debug("START  IMPORT XLS ");
+        boolean addLivre = true;
         try {
-            FileInputStream in = new FileInputStream(new File("C:\\Users\\Vibrac\\Documents\\devs\\quinzaineimport\\selection.xls"));
+            FileInputStream in = new FileInputStream(new File("/home/fchauveau/dev/workspace/hackathon-quinzaineDuLivre/src/main/resources/selection.xls"));
             Workbook excel = readExcelFile(in, "selection.xls");
 
             Sheet sheet1 = excel.getSheet("selection");
@@ -49,7 +52,7 @@ public class ImportExcel {
 
                     //id
                     Double idLivre = row.getCell(0).getNumericCellValue();
-                    livre.setIdLivre(idLivre.intValue());
+                    livre.setId(idLivre.longValue());
 
                     //codeBarre
                     String codeBarre;
@@ -62,7 +65,7 @@ public class ImportExcel {
                             codeBarre = "";
                         }
                     }
-                    livre.setCodeBarre(Long.parseLong(codeBarre.trim()));
+                    livre.setCodeBarre(codeBarre.trim());
 
                     //categorie
                     String sCategorie = row.getCell(2).getStringCellValue();
@@ -107,14 +110,14 @@ public class ImportExcel {
                     //Commentaires
                     livre.setCommentaires(row.getCell(12).getStringCellValue());
 
-                    // reservé HDV
+                    // reservï¿½ HDV
                     String reserveHdv;
                     try {
                         reserveHdv = row.getCell(13).getStringCellValue();
                     } catch (Exception e) {
                         reserveHdv = "";
                     }
-                    livre.setReserveHdv(ouiToTrue(reserveHdv));
+                    livre.setReserveHDV(ouiToTrue(reserveHdv));
                     double prix;
                     try {
                         prix = row.getCell(14).getNumericCellValue();
@@ -129,11 +132,11 @@ public class ImportExcel {
 
             }
 
-            if (addLivre){
+            if (addLivre) {
                 for (Livre livre : livreList) {
                     livreService.addLivre(livre);
                 }
-             }
+            }
 
             System.out.println(livreList.size());
 
@@ -148,13 +151,12 @@ public class ImportExcel {
     }
 
 
-
     protected Workbook readExcelFile(FileInputStream in, String excelFileName) throws IOException {
         Workbook workbook;
         try {
             if (excelFileName.endsWith(".xlsx")) {
                 workbook = new XSSFWorkbook(in);
-            } else if (excelFileName.endsWith(".xls")){
+            } else if (excelFileName.endsWith(".xls")) {
                 workbook = new HSSFWorkbook(in);
             } else {
                 workbook = null;
@@ -166,8 +168,8 @@ public class ImportExcel {
 
     }
 
-    boolean ouiToTrue(String value){
-        if (value!=null && ("oui".equals(value.toLowerCase()) || "x".equals(value.toLowerCase()))){
+    boolean ouiToTrue(String value) {
+        if (value != null && ("oui".equals(value.toLowerCase()) || "x".equals(value.toLowerCase()))) {
             return true;
         }
         return false;

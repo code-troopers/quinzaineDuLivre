@@ -27,8 +27,8 @@
             <column name="auteurs" type="varchar(255)"/>
             <column name="illustrateur" type="varchar(255)"/>
             <column name="code_barre" type="varchar(255)"/>
-            <column name="resume" type="varchar(255)"/>
-            <column name="commentaires" type="varchar(255)"/>
+            <column name="resume" type="longtext"/>
+            <column name="commentaires" type="longtext"/>
             <column name="reserve_hdv" type="bit"/>
             <column name="coup_coeur" type="bit"/>
             <column name="prix" type="double"/>

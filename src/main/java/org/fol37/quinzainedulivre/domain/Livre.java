@@ -3,8 +3,6 @@ package org.fol37.quinzainedulivre.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -33,10 +31,12 @@ public class Livre implements Serializable {
     
     @Column(name = "code_barre")
     private String codeBarre;
-    
+
+    @Lob
     @Column(name = "resume")
     private String resume;
-    
+
+    @Lob
     @Column(name = "commentaires")
     private String commentaires;
     

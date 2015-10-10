@@ -1,7 +1,7 @@
 package org.fol37.quinzainedulivre.repository;
 
 import org.fol37.quinzainedulivre.domain.Categorie;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface CategorieRepository extends JpaRepository<Categorie,Long> {
 
+    List<Categorie> findByLibelle(String libelle);
 }
