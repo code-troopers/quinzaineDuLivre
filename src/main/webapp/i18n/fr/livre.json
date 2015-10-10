@@ -6,6 +6,9 @@
                 "createLabel": "Créer un nouveau Livre",
                 "createOrEditLabel": "Créer ou éditer un Livre"
             },
+            "created": "A new Livre is created with identifier {{ param }}",
+            "updated": "A Livre is updated with identifier {{ param }}",
+            "deleted": "A Livre is deleted with identifier {{ param }}",
             "delete": {
                 "question": "Etes-vous certain de vouloir supprimer le Livre {{ id }} ?"
             },
@@ -20,12 +23,12 @@
             "resume": "Resume",
             "commentaires": "Commentaires",
             "reserveHDV": "ReserveHDV",
-            "coupCoeur": "CoupCoeur",
+            "coupCoeur": "Coup de cœur",
             "prix": "Prix",
             "urlImage": "UrlImage",
-            "age": "Age",
-            "categorie": "Categorie",
-            "editeur": "Editeur"
+            "age": "Âge",
+            "categorie": "Catégorie",
+            "editeur": "Éditeur"
         }
     }
 }
