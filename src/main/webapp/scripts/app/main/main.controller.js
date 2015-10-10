@@ -7,12 +7,12 @@ angular.module('quinzaineDuLivreApp')
             $scope.isAuthenticated = Principal.isAuthenticated;
         });
     })
-    .controller('TableListeController', function ($scope, Principal, Livre, ParseLinks) {
+    .controller('TableListeController', function ($scope, Principal, AllLivres, ParseLinks) {
         $scope.filter = {};
         $scope.livres = [];
         $scope.page = 0;
         $scope.loadAll = function () {
-            Livre.query({page: $scope.page, size: 20}, function (result, headers) {
+            AllLivres.query({page: $scope.page, size: 20}, function (result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
                 for (var i = 0; i < result.length; i++) {
                     $scope.livres.push(result[i]);

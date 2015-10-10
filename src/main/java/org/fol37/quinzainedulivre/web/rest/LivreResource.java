@@ -69,10 +69,25 @@ public class LivreResource {
                 .body(result);
     }
 
+
     /**
      * GET  /livres -> get all the livres.
      */
     @RequestMapping(value = "/livres",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Livre>> getAllLivresByBackOffice(Pageable pageable)
+            throws URISyntaxException {
+        Page<Livre> page = livreRepository.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/livres");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    }
+
+    /**
+     * GET  /livres -> get all the livres.
+     */
+    @RequestMapping(value = "/allLivres",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
