@@ -88,9 +88,8 @@ angular.module('quinzaineDuLivreApp', ['LocalStorageModule', 'tmh.dynamicLocale'
 
         // Initialize angular-translate
         $translateProvider.useLoader('$translatePartialLoader', {
-            urlTemplate: 'i18n/{lang}/{part}.json'
+            urlTemplate: 'i18n/{part}.json'
         });
-        //$translateProvider.preferredLanguage('fr');
         $translateProvider.useCookieStorage();
         $translateProvider.useSanitizeValueStrategy('escaped');
         $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
