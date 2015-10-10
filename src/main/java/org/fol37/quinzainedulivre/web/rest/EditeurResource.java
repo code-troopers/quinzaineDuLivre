@@ -6,7 +6,7 @@ import org.fol37.quinzainedulivre.repository.EditeurRepository;
 import org.fol37.quinzainedulivre.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -76,7 +76,8 @@ public class EditeurResource {
     @Timed
     public List<Editeur> getAllEditeurs() {
         log.debug("REST request to get all Editeurs");
-        return editeurRepository.findAll();
+        Sort sort = new Sort(Sort.Direction.ASC, "nom");
+        return editeurRepository.findAll(sort);
     }
 
     /**

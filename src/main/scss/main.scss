@@ -6,6 +6,12 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.mainbody {
     background: #186185 url("../images/gradientblue_img.svg") 50% 50% fixed;
     background-size: 100% 100%;
     color: #fff;
@@ -181,18 +187,13 @@ ul#strength {
     margin-bottom: 20px;
 }
 
-table {
-    color: #000;
-    background-color: #fff;
-}
-
 .navbar-default {
     background: none;
     border: none;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #fff;
+    color: #333;
 }
 
 .navbar-brand {

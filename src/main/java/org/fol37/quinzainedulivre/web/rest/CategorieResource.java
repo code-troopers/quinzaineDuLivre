@@ -6,7 +6,7 @@ import org.fol37.quinzainedulivre.repository.CategorieRepository;
 import org.fol37.quinzainedulivre.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -76,7 +76,8 @@ public class CategorieResource {
     @Timed
     public List<Categorie> getAllCategories() {
         log.debug("REST request to get all Categories");
-        return categorieRepository.findAll();
+        Sort sort = new Sort(Sort.Direction.ASC, "libelle");
+        return categorieRepository.findAll(sort);
     }
 
     /**
