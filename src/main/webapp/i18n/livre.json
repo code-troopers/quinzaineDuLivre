@@ -4,6 +4,7 @@
             "home": {
                 "title": "Livres",
                 "createLabel": "Créer un nouveau Livre",
+                "import": "Ré-importer tous les livres via XLS",
                 "createOrEditLabel": "Créer ou éditer un Livre"
             },
             "created": "A new Livre is created with identifier {{ param }}",

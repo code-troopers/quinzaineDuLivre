@@ -105,5 +105,23 @@ angular.module('quinzaineDuLivreApp')
                         $state.go('^');
                     })
                 }]
+            })
+            .state('livre.upload', {
+                parent: 'livre',
+                url: '/upload',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/livre/livre-upload-dialog.html',
+                        controller: 'LivreUploadDialogController',
+                        size: 'lg'
+                    }).result.then(function(result) {
+                        $state.go('livre', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
             });
     });
