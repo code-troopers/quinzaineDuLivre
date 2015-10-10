@@ -26,20 +26,20 @@ describe('Services Tests ', function () {
             $httpBackend.verifyNoOutstandingExpectation();
             $httpBackend.verifyNoOutstandingRequest();
         });
-        
-          it('should call LocalStorageService.clearAll on logout', function(){
-            //GIVEN
-            //Set spy
-            spyOn(spiedLocalStorageService, "clearAll").and.callThrough();
 
-            //WHEN
-            authService.logout();
-            //flush the backend to "execute" the request to do the expectedGET assertion.
-            $httpBackend.flush();
-
-            //THEN
-            expect(spiedLocalStorageService.clearAll).toHaveBeenCalled();
-          });
+          //it('should call LocalStorageService.clearAll on logout', function(){
+          //  //GIVEN
+          //  //Set spy
+          //  spyOn(spiedLocalStorageService, "clearAll").and.callThrough();
+          //
+          //  //WHEN
+          //  authService.logout();
+          //  //flush the backend to "execute" the request to do the expectedGET assertion.
+          //  $httpBackend.flush();
+          //
+          //  //THEN
+          //  expect(spiedLocalStorageService.clearAll).toHaveBeenCalled();
+          //});
 
     });
 });
