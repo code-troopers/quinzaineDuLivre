@@ -1,0 +1,19 @@
+{
+    "quinzaineDuLivreApp": {
+        "categorie" : {
+            "home": {
+                "title": "Categories",
+                "createLabel": "Créer un nouveau Categorie",
+                "createOrEditLabel": "Créer ou éditer un Categorie"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Categorie {{ id }} ?"
+            },
+            "detail": {
+                "title": "Categorie"
+            },
+            "libelle": "Libelle"
+        }
+    }
+}
+

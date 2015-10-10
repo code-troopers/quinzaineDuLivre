@@ -1,0 +1,110 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myLivreLabel" translate="quinzaineDuLivreApp.livre.home.createOrEditLabel">Create or edit a Livre</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="livre.id" readonly>
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.titre" for="field_titre">Titre</label>
+            <input type="text" class="form-control" name="titre" id="field_titre"
+                    ng-model="livre.titre"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.sousTitre" for="field_sousTitre">SousTitre</label>
+            <input type="text" class="form-control" name="sousTitre" id="field_sousTitre"
+                    ng-model="livre.sousTitre"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.auteurs" for="field_auteurs">Auteurs</label>
+            <input type="text" class="form-control" name="auteurs" id="field_auteurs"
+                    ng-model="livre.auteurs"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.illustrateur" for="field_illustrateur">Illustrateur</label>
+            <input type="text" class="form-control" name="illustrateur" id="field_illustrateur"
+                    ng-model="livre.illustrateur"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.codeBarre" for="field_codeBarre">CodeBarre</label>
+            <input type="text" class="form-control" name="codeBarre" id="field_codeBarre"
+                    ng-model="livre.codeBarre"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.resume" for="field_resume">Resume</label>
+            <input type="text" class="form-control" name="resume" id="field_resume"
+                    ng-model="livre.resume"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.commentaires" for="field_commentaires">Commentaires</label>
+            <input type="text" class="form-control" name="commentaires" id="field_commentaires"
+                    ng-model="livre.commentaires"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.reserveHDV" for="field_reserveHDV">ReserveHDV</label>
+            <input type="checkbox" class="form-control" name="reserveHDV" id="field_reserveHDV"
+                    ng-model="livre.reserveHDV"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.coupCoeur" for="field_coupCoeur">CoupCoeur</label>
+            <input type="checkbox" class="form-control" name="coupCoeur" id="field_coupCoeur"
+                    ng-model="livre.coupCoeur"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.prix" for="field_prix">Prix</label>
+            <input type="number" class="form-control" name="prix" id="field_prix"
+                    ng-model="livre.prix"
+                    >
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.urlImage" for="field_urlImage">UrlImage</label>
+            <input type="text" class="form-control" name="urlImage" id="field_urlImage"
+                    ng-model="livre.urlImage"
+                    >
+        </div>
+
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.age" for="field_age">age</label>
+            <select class="form-control" id="field_age" name="age" ng-model="livre.age" ng-options="age as age.id for age in ages track by age.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.categorie" for="field_categorie">categorie</label>
+            <select class="form-control" id="field_categorie" name="categorie" ng-model="livre.categorie" ng-options="categorie as categorie.id for categorie in categories track by categorie.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="quinzaineDuLivreApp.livre.editeur" for="field_editeur">editeur</label>
+            <select class="form-control" id="field_editeur" name="editeur" ng-model="livre.editeur" ng-options="editeur as editeur.id for editeur in editeurs track by editeur.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

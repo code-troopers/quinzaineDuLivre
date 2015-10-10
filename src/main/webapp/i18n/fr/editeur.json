@@ -1,0 +1,19 @@
+{
+    "quinzaineDuLivreApp": {
+        "editeur" : {
+            "home": {
+                "title": "Editeurs",
+                "createLabel": "Créer un nouveau Editeur",
+                "createOrEditLabel": "Créer ou éditer un Editeur"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Editeur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Editeur"
+            },
+            "nom": "Nom"
+        }
+    }
+}
+

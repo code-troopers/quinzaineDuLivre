@@ -1,0 +1,32 @@
+{
+    "quinzaineDuLivreApp": {
+        "livre" : {
+            "home": {
+                "title": "Livres",
+                "createLabel": "Créer un nouveau Livre",
+                "createOrEditLabel": "Créer ou éditer un Livre"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Livre {{ id }} ?"
+            },
+            "detail": {
+                "title": "Livre"
+            },
+            "titre": "Titre",
+            "sousTitre": "SousTitre",
+            "auteurs": "Auteurs",
+            "illustrateur": "Illustrateur",
+            "codeBarre": "CodeBarre",
+            "resume": "Resume",
+            "commentaires": "Commentaires",
+            "reserveHDV": "ReserveHDV",
+            "coupCoeur": "CoupCoeur",
+            "prix": "Prix",
+            "urlImage": "UrlImage",
+            "age": "Age",
+            "categorie": "Categorie",
+            "editeur": "Editeur"
+        }
+    }
+}
+

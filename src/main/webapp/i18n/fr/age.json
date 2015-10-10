@@ -1,0 +1,20 @@
+{
+    "quinzaineDuLivreApp": {
+        "age" : {
+            "home": {
+                "title": "Ages",
+                "createLabel": "Créer un nouveau Age",
+                "createOrEditLabel": "Créer ou éditer un Age"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Age {{ id }} ?"
+            },
+            "detail": {
+                "title": "Age"
+            },
+            "libelle": "Libelle",
+            "aPartirDe": "APartirDe"
+        }
+    }
+}
+

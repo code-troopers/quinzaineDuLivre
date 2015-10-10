@@ -1,0 +1,134 @@
+
+<div>
+    <h2><span translate="quinzaineDuLivreApp.livre.detail.title">Livre</span> {{livre.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.titre">Titre</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.titre}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.sousTitre">SousTitre</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.sousTitre}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.auteurs">Auteurs</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.auteurs}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.illustrateur">Illustrateur</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.illustrateur}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.codeBarre">CodeBarre</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.codeBarre}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.resume">Resume</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.resume}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.commentaires">Commentaires</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.commentaires}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.reserveHDV">ReserveHDV</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.reserveHDV}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.coupCoeur">CoupCoeur</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.coupCoeur}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.prix">Prix</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.prix}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.urlImage">UrlImage</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{livre.urlImage}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.age">age</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="age.detail({id:livre.age.id})">{{livre.age.id}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.categorie">categorie</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="categorie.detail({id:livre.categorie.id})">{{livre.categorie.id}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="quinzaineDuLivreApp.livre.editeur">editeur</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="editeur.detail({id:livre.editeur.id})">{{livre.editeur.id}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

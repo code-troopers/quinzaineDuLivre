@@ -1,0 +1,85 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "age",
+            "otherEntityName": "age",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "categorie",
+            "otherEntityName": "categorie",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "editeur",
+            "otherEntityName": "editeur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "titre",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "sousTitre",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "auteurs",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "illustrateur",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "codeBarre",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "resume",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "commentaires",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 8,
+            "fieldName": "reserveHDV",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 9,
+            "fieldName": "coupCoeur",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 10,
+            "fieldName": "prix",
+            "fieldType": "Double"
+        },
+        {
+            "fieldId": 11,
+            "fieldName": "urlImage",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20151010101041",
+    "dto": "no",
+    "pagination": "infinite-scroll"
+}

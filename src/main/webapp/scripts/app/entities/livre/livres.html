@@ -1,0 +1,105 @@
+<div>
+    <h2 translate="quinzaineDuLivreApp.livre.home.title">Livres</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="livre.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="quinzaineDuLivreApp.livre.home.createLabel">Create a new Livre</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteLivreConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(livre.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="quinzaineDuLivreApp.livre.delete.question" translate-values="{id: '{{livre.id}}'}">Are you sure you want to delete this Livre?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="quinzaineDuLivreApp.livre.titre">Titre</th>
+                    <th translate="quinzaineDuLivreApp.livre.sousTitre">SousTitre</th>
+                    <th translate="quinzaineDuLivreApp.livre.auteurs">Auteurs</th>
+                    <th translate="quinzaineDuLivreApp.livre.illustrateur">Illustrateur</th>
+                    <th translate="quinzaineDuLivreApp.livre.codeBarre">CodeBarre</th>
+                    <th translate="quinzaineDuLivreApp.livre.resume">Resume</th>
+                    <th translate="quinzaineDuLivreApp.livre.commentaires">Commentaires</th>
+                    <th translate="quinzaineDuLivreApp.livre.reserveHDV">ReserveHDV</th>
+                    <th translate="quinzaineDuLivreApp.livre.coupCoeur">CoupCoeur</th>
+                    <th translate="quinzaineDuLivreApp.livre.prix">Prix</th>
+                    <th translate="quinzaineDuLivreApp.livre.urlImage">UrlImage</th>
+                    <th translate="quinzaineDuLivreApp.livre.age">age</th>
+                    <th translate="quinzaineDuLivreApp.livre.categorie">categorie</th>
+                    <th translate="quinzaineDuLivreApp.livre.editeur">editeur</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+                <tr ng-repeat="livre in livres track by livre.id">
+                    <td><a ui-sref="livre.detail({id:livre.id})">{{livre.id}}</a></td>
+                    <td>{{livre.titre}}</td>
+                    <td>{{livre.sousTitre}}</td>
+                    <td>{{livre.auteurs}}</td>
+                    <td>{{livre.illustrateur}}</td>
+                    <td>{{livre.codeBarre}}</td>
+                    <td>{{livre.resume}}</td>
+                    <td>{{livre.commentaires}}</td>
+                    <td>{{livre.reserveHDV}}</td>
+                    <td>{{livre.coupCoeur}}</td>
+                    <td>{{livre.prix}}</td>
+                    <td>{{livre.urlImage}}</td>
+                    <td>
+                        <a ui-sref="age.detail({id:livre.age.id})">{{livre.age.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="categorie.detail({id:livre.categorie.id})">{{livre.categorie.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="editeur.detail({id:livre.editeur.id})">{{livre.editeur.id}}</a>
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="livre.detail({id:livre.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="livre.edit({id:livre.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(livre.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -6,6 +6,10 @@
             "home": "Accueil",
             "entities": {
                 "main": "Entités",
+                "age": "Age",
+                "categorie": "Categorie",
+                "editeur": "Editeur",
+                "livre": "Livre",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
