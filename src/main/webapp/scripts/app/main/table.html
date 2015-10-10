@@ -4,17 +4,39 @@
             <div class="col-md-3">
                 <img class="cover" src="{{livre.urlImage}}"/>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9" ng-class="{
+                coeur: livre.coupCoeur
+            }">
                 <H1 class="title">{{livre.id}}. {{livre.titre}}</H1>
 
                 <H3 class="author">{{livre.auteurs}} {{livre.illustrateur}}</H3>
+                <H4 class="editeur">{{livre.editeur.nom}}</H4>
 
-                <div class="resume">{{livre.resume}}</div>
-                <div class="comments">{{livre.commentaires}}</div>
-                Categorie : {{livre.categorie.libelle}}<br/>
-                Age : {{livre.age.libelle}}<br/>
-                Editeur : {{livre.editeur.nom}}<br/>
-                Coeur : {{livre.coupCoeur}}<br/>
+                <div ng-if="livre.coupCoeur">
+                    <div class="row">
+                        <div class="col-sm-1 text-center">
+                            <i class="fa fa-heart-o fa-big"></i>
+                            <i class="fa fa-heart-o fa-big"></i>
+                            <i class="fa fa-heart-o fa-big"></i>
+                            <i class="fa fa-heart-o fa-big"></i>
+                            <i class="fa fa-heart-o fa-big"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="resume">{{livre.resume}}</div>
+                            <div class="comments">{{livre.commentaires}}</div>
+                            <div class="price">prix : {{livre.prix}} €</div>
+                            <div>Categorie : {{livre.categorie.libelle}}</div>
+                            <div>Age : {{livre.age.libelle}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="!livre.coupCoeur">
+                    <div class="resume">{{livre.resume}}</div>
+                    <div class="comments">{{livre.commentaires}}</div>
+                    <div class="price">prix : {{livre.prix}} €</div>
+                    <div>Categorie : {{livre.categorie.libelle}}</div>
+                    <div>Age : {{livre.age.libelle}}</div>
+                </div>
             </div>
         </div>
     </div>

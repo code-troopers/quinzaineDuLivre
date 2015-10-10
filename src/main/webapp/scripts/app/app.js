@@ -8,14 +8,10 @@ angular.module('quinzaineDuLivreApp', ['LocalStorageModule', 'tmh.dynamicLocale'
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.MAINPAGE = $state.current.name === "";
-        console.log($state.current.name);
-        console.log($rootScope.MAINPAGE);
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
             $rootScope.MAINPAGE = toState.name === "" || toState.name === "home";
-            console.log(toState);
-            console.log($rootScope.MAINPAGE);
 
             if (Principal.isIdentityResolved()) {
                 Auth.authorize();

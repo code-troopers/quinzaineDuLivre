@@ -2,6 +2,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 // bower:scss
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "components-font-awesome/scss/font-awesome.scss";
 // endbower
 
 body {
@@ -65,7 +66,7 @@ body {
 
 .error {
     color: white;
-    background-color: red;
+    background-color: #FF7043;
 }
 
 .hipster {
@@ -164,11 +165,11 @@ ul#strength {
 }
 
 .title {
-    color: red;
+    color: #FF7043;
 }
 
 .author {
-    color: red;
+    color: #FF7043;
 }
 
 .comments {
@@ -202,4 +203,21 @@ ul#strength {
     background-image: url("../images/logo.jpg");
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+.editeur {
+    color: #FF7043;
+}
+
+.resume {
+    font-size: 120%;
+}
+
+.comments {
+    font-size: 120%;
+}
+
+.fa-big {
+    font-size: 200%;
+    margin-left: 10px;
 }
