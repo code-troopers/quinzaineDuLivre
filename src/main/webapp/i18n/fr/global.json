@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "quinzaineDuLivre",
+        "title": "Quinzaine du Livre",
         "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
         "menu": {
             "home": "Accueil",
@@ -108,5 +108,5 @@
             "datetimelocal": "Ce champs doit être une date et une heure."
         }
     },
-    "footer": "Ceci est votre pied de page"
+    "footer": "Ligue de l'enseignement, fédération des Oeuvres Laïques d'Indre-et-Loire - 10, avenue de la République - 37300 Joué-les-Tours - Tél : 02 47 05 44 28 - Fax : 02 47 66 51 16"
 }
