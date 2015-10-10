@@ -18,6 +18,7 @@ angular.module('quinzaineDuLivreApp')
                 resolve: {
                     mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                         $translatePartialLoader.addPart('main');
+                        $translatePartialLoader.addPart('livre');
                         return $translate.refresh();
                     }]
                 }
