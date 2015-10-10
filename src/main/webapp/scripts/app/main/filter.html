@@ -1,7 +1,7 @@
 <form name="queryBooks" role="form" novalidate ng-submit="search()">
     <div class="row">
 
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label translate="quinzaineDuLivreApp.livre.categorie" for="field_categorie">categorie</label>
             <select class="form-control"
                     id="field_categorie"
@@ -11,7 +11,7 @@
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label translate="quinzaineDuLivreApp.livre.age" for="field_age">age</label>
             <select class="form-control"
                     id="field_age"
@@ -21,7 +21,7 @@
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label translate="quinzaineDuLivreApp.livre.coupCoeur" for="field_coupCoeur">CoupCoeur</label>
             <input type="checkbox"
                    class="form-control"
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label translate="quinzaineDuLivreApp.livre.titre" for="field_titre">Titre</label>
             <input type="text"
                    class="form-control"
@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label translate="quinzaineDuLivreApp.livre.auteurs" for="field_auteurs">Auteurs</label>
             <input type="text"
                    class="form-control"
@@ -50,7 +50,7 @@
                    id="field_auteurs"
                    ng-model="filter.auteurs">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label translate="quinzaineDuLivreApp.livre.illustrateur"
                    for="field_illustrateur">Illustrateur</label>
             <input type="text"
@@ -59,7 +59,7 @@
                    id="field_illustrateur"
                    ng-model="filter.illustrateur">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-4">
             <label translate="quinzaineDuLivreApp.livre.editeur" for="field_editeur">editeur</label>
             <select class="form-control"
                     id="field_editeur"
@@ -72,6 +72,7 @@
     </div>
     <div class="row">
         <div class="pull-right">
+            <button type="button" class="btn btn-danger" translate="entity.action.reset" ng-click="resetFilter()"></button>
             <button type="submit" class="btn btn-primary" translate="entity.action.search"></button>
         </div>
     </div>

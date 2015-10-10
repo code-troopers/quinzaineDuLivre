@@ -87,6 +87,7 @@
             "delete": "Supprimer",
             "save": "Sauvegarder",
             "view": "Voir",
+            "reset": "Effacer",
             "search" : "Rechercher"
         },
         "detail": {

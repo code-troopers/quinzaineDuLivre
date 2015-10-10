@@ -40,12 +40,29 @@ angular.module('quinzaineDuLivreApp')
         $scope.search = function () {
             //    probably loadAll() here
         };
+        $scope.resetFilter = function () {
+            $scope.filter = {};
+        };
+
+        function isFilterSetted(input) {
+            return angular.isDefined(input) && input != null && input != "";
+        }
 
         $scope.filterFunction = function (element) {
-            if (angular.isDefined(element.titre) && element.titre != null && element.titre.match(new RegExp($scope.filter.titre, "i"))) {
-                return true;
+            var noFiltersActive = true;
+            if (isFilterSetted($scope.filter.titre)) {
+                noFiltersActive = false;
+                if (angular.isDefined(element.titre) && element.titre != null && element.titre.match(new RegExp($scope.filter.titre, "i"))) {
+                    return true;
+                }
             }
-            return false;
+            if (isFilterSetted($scope.filter.editeur)) {
+                noFiltersActive = false;
+                if (angular.isDefined(element.editeur) && element.editeur != null && element.editeur.id == $scope.filter.editeur.id) {
+                    return true;
+                }
+            }
+            return noFiltersActive;
         };
     })
     .directive('booksFilter', function () {
