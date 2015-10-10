@@ -5,9 +5,10 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 // endbower
 
 body {
-    background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+    background: #186185 url("../images/gradientblue_img.svg") 50% 50% fixed;
+    background-size: 100% 100%;
+    color: #fff;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -166,4 +167,16 @@ ul#strength {
 
 .comments {
     font-style: italic;
+}
+
+/** override well */
+.well {
+    background: none;
+    border: none;
+}
+
+.livre {
+    background: url("../images/module_box_transparency50.png") 0 0 repeat;
+    padding: 20px;
+    margin-bottom: 20px;
 }

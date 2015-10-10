@@ -1,12 +1,14 @@
-<div class="row">
-    <div infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
-        <div ng-repeat="livre in livres track by livre.id">
+<div infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
+    <div ng-repeat="livre in livres track by livre.id">
+        <div class="row livre">
             <div class="col-md-3">
                 <img class="cover" src="{{livre.urlImage}}"></img>
             </div>
             <div class="col-md-9">
                 <H1 class="title">{{livre.id}}. {{livre.titre}}</H1>
+
                 <H3 class="author">{{livre.auteurs}} {{livre.illustrateur}}</H3>
+
                 <div class="resume">{{livre.resume}}</div>
                 <div class="comments">{{livre.commentaires}}</div>
             </div>
