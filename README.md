@@ -1,5 +1,13 @@
 # Developing quinzaineDuLivre
 
+TL;DR :
+
+`docker-compose build`
+`docker-compose up`  <-- this launch only mysql
+`mvn spring-boot:run` <-- launch the back
+`grunt serve` <-- lanch the front
+
+
 quinzaineDuLivre was generated using JHipster, you can find documentation and help at [JHipster][].
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
