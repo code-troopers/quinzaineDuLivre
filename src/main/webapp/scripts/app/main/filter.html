@@ -1,80 +1,83 @@
-<form name="queryBooks" role="form" novalidate ng-submit="search()">
-    <div class="row">
+<div class="row livre">
+    <form name="queryBooks" role="form" novalidate ng-submit="search()">
+        <div class="row">
 
-        <div class="form-group col-md-4">
-            <label translate="quinzaineDuLivreApp.livre.categorie" for="field_categorie">categorie</label>
-            <select class="form-control"
-                    id="field_categorie"
-                    name="categorie"
-                    ng-model="filter.categorie"
-                    ng-options="categorie as categorie.libelle for categorie in categories track by categorie.id">
-                <option value=""></option>
-            </select>
+            <div class="form-group col-md-4">
+                <label translate="quinzaineDuLivreApp.livre.categorie" for="field_categorie">categorie</label>
+                <select class="form-control"
+                        id="field_categorie"
+                        name="categorie"
+                        ng-model="filter.categorie"
+                        ng-options="categorie as categorie.libelle for categorie in categories track by categorie.id">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label translate="quinzaineDuLivreApp.livre.age" for="field_age">age</label>
+                <select class="form-control"
+                        id="field_age"
+                        name="age"
+                        ng-model="filter.age"
+                        ng-options="age as age.libelle for age in ages track by age.id">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label translate="quinzaineDuLivreApp.livre.coupCoeur" for="field_coupCoeur">CoupCoeur</label>
+                <input type="checkbox"
+                       class="form-control"
+                       name="coupCoeur"
+                       id="field_coupCoeur"
+                       ng-model="filter.coupCoeur"
+                    >
+            </div>
         </div>
-        <div class="form-group col-md-4">
-            <label translate="quinzaineDuLivreApp.livre.age" for="field_age">age</label>
-            <select class="form-control"
-                    id="field_age"
-                    name="age"
-                    ng-model="filter.age"
-                    ng-options="age as age.libelle for age in ages track by age.id">
-                <option value=""></option>
-            </select>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label translate="quinzaineDuLivreApp.livre.titre" for="field_titre">Titre</label>
+                <input type="text"
+                       class="form-control"
+                       name="titre"
+                       id="field_titre"
+                       ng-model="filter.titre">
+            </div>
         </div>
-        <div class="form-group col-md-4">
-            <label translate="quinzaineDuLivreApp.livre.coupCoeur" for="field_coupCoeur">CoupCoeur</label>
-            <input type="checkbox"
-                   class="form-control"
-                   name="coupCoeur"
-                   id="field_coupCoeur"
-                   ng-model="filter.coupCoeur"
-            >
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label translate="quinzaineDuLivreApp.livre.auteurs" for="field_auteurs">Auteurs</label>
+                <input type="text"
+                       class="form-control"
+                       name="auteurs"
+                       id="field_auteurs"
+                       ng-model="filter.auteurs">
+            </div>
+            <div class="form-group col-md-4">
+                <label translate="quinzaineDuLivreApp.livre.illustrateur"
+                       for="field_illustrateur">Illustrateur</label>
+                <input type="text"
+                       class="form-control"
+                       name="illustrateur"
+                       id="field_illustrateur"
+                       ng-model="filter.illustrateur">
+            </div>
+            <div class="form-group col-md-4">
+                <label translate="quinzaineDuLivreApp.livre.editeur" for="field_editeur">editeur</label>
+                <select class="form-control"
+                        id="field_editeur"
+                        name="editeur"
+                        ng-model="filter.editeur"
+                        ng-options="editeur as editeur.nom for editeur in editeurs track by editeur.id">
+                    <option value=""></option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <label translate="quinzaineDuLivreApp.livre.titre" for="field_titre">Titre</label>
-            <input type="text"
-                   class="form-control"
-                   name="titre"
-                   id="field_titre"
-                   ng-model="filter.titre">
+        <div class="row">
+            <div class="pull-right">
+                <button type="button" class="btn btn-danger" translate="entity.action.reset"
+                        ng-click="resetFilter()"></button>
+                <button type="submit" class="btn btn-primary" translate="entity.action.search"></button>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <label translate="quinzaineDuLivreApp.livre.auteurs" for="field_auteurs">Auteurs</label>
-            <input type="text"
-                   class="form-control"
-                   name="auteurs"
-                   id="field_auteurs"
-                   ng-model="filter.auteurs">
-        </div>
-        <div class="form-group col-md-4">
-            <label translate="quinzaineDuLivreApp.livre.illustrateur"
-                   for="field_illustrateur">Illustrateur</label>
-            <input type="text"
-                   class="form-control"
-                   name="illustrateur"
-                   id="field_illustrateur"
-                   ng-model="filter.illustrateur">
-        </div>
-        <div class="form-group col-md-4">
-            <label translate="quinzaineDuLivreApp.livre.editeur" for="field_editeur">editeur</label>
-            <select class="form-control"
-                    id="field_editeur"
-                    name="editeur"
-                    ng-model="filter.editeur"
-                    ng-options="editeur as editeur.nom for editeur in editeurs track by editeur.id">
-                <option value=""></option>
-            </select>
-        </div>
-    </div>
-    <div class="row">
-        <div class="pull-right">
-            <button type="button" class="btn btn-danger" translate="entity.action.reset" ng-click="resetFilter()"></button>
-            <button type="submit" class="btn btn-primary" translate="entity.action.search"></button>
-        </div>
-    </div>
 
-</form>
+    </form>
+</div>
