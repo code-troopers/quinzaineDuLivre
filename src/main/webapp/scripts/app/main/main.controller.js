@@ -12,11 +12,8 @@ angular.module('quinzaineDuLivreApp')
         $scope.livres = [];
         $scope.page = 0;
         $scope.loadAll = function () {
-            AllLivres.query({page: $scope.page, size: 20}, function (result, headers) {
-                $scope.links = ParseLinks.parse(headers('link'));
-                for (var i = 0; i < result.length; i++) {
-                    $scope.livres.push(result[i]);
-                }
+            AllLivres.query({page: $scope.page, size: 20}, function (result) {
+                $scope.livres = result;
             });
         };
         $scope.reset = function () {
@@ -31,8 +28,15 @@ angular.module('quinzaineDuLivreApp')
         $scope.loadAll();
 
         $scope.search = function () {
-        //    probably loadAll() here
-        }
+            //    probably loadAll() here
+        };
+
+        $scope.filterFunction = function (element) {
+            if (angular.isDefined(element.titre) && element.titre != null && element.titre.match(new RegExp($scope.filter.titre, "i"))) {
+                return true;
+            }
+            return false;
+        };
     })
     .directive('booksFilter', function () {
         return {

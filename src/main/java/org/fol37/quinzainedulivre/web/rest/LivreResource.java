@@ -93,9 +93,8 @@ public class LivreResource {
     @Timed
     public ResponseEntity<List<Livre>> getAllLivres(Pageable pageable)
         throws URISyntaxException {
-        Page<Livre> page = livreRepository.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/livres");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        List<Livre> page = livreRepository.findAll();
+        return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
     /**
