@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -91,10 +92,10 @@ public class LivreResource {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Livre>> getAllLivres(Pageable pageable)
+    public List<Livre> getAllLivres()
         throws URISyntaxException {
-        List<Livre> page = livreRepository.findAll();
-        return new ResponseEntity<>(page, HttpStatus.OK);
+        Sort sort = new Sort(Sort.Direction.ASC, "id"); //FIXME sort by num setted manually
+        return livreRepository.findAll(sort);
     }
 
     /**

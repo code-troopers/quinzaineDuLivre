@@ -6,7 +6,7 @@ import org.fol37.quinzainedulivre.repository.AgeRepository;
 import org.fol37.quinzainedulivre.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -53,8 +53,8 @@ public class AgeResource {
      * PUT  /ages -> Updates an existing age.
      */
     @RequestMapping(value = "/ages",
-        method = RequestMethod.PUT,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+            method = RequestMethod.PUT,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<Age> updateAge(@Valid @RequestBody Age age) throws URISyntaxException {
         log.debug("REST request to update Age : {}", age);
@@ -76,7 +76,8 @@ public class AgeResource {
     @Timed
     public List<Age> getAllAges() {
         log.debug("REST request to get all Ages");
-        return ageRepository.findAll();
+        Sort sort = new Sort(Sort.Direction.ASC, "libelle");
+        return ageRepository.findAll(sort);
     }
 
     /**
@@ -89,10 +90,10 @@ public class AgeResource {
     public ResponseEntity<Age> getAge(@PathVariable Long id) {
         log.debug("REST request to get Age : {}", id);
         return Optional.ofNullable(ageRepository.findOne(id))
-            .map(age -> new ResponseEntity<>(
-                age,
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+                .map(age -> new ResponseEntity<>(
+                        age,
+                        HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     /**
