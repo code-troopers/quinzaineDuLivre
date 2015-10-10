@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "quinzaineDuLivre",
+    "packageName": "org.fol37.quinzainedulivre",
+    "packageFolder": "org/fol37/quinzainedulivre",
+    "authenticationType": "xauth",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "no",
+    "useSass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": true,
+    "rememberMeKey": "25b65fc47ce555a6d4406efe4766ad809539a640"
+  }
+}
