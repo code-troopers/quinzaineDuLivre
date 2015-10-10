@@ -1,4 +1,3 @@
-
 <form name="queryBooks" role="form" novalidate ng-submit="search()">
     <div class="row">
 
@@ -52,40 +51,42 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.coupCoeur" for="field_coupCoeur">CoupCoeur</label>
             <input type="checkbox" class="form-control" name="coupCoeur" id="field_coupCoeur"
                    ng-model="livre.coupCoeur"
             >
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.prix" for="field_prix">Prix</label>
             <input type="number" class="form-control" name="prix" id="field_prix"
                    ng-model="livre.prix"
             >
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.urlImage" for="field_urlImage">UrlImage</label>
             <input type="text" class="form-control" name="urlImage" id="field_urlImage"
                    ng-model="livre.urlImage"
             >
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.age" for="field_age">age</label>
             <select class="form-control" id="field_age" name="age" ng-model="livre.age"
                     ng-options="age as age.id for age in ages track by age.id">
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group">
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.categorie" for="field_categorie">categorie</label>
             <select class="form-control" id="field_categorie" name="categorie" ng-model="livre.categorie"
                     ng-options="categorie as categorie.id for categorie in categories track by categorie.id">
                 <option value=""></option>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-3">
             <label translate="quinzaineDuLivreApp.livre.editeur" for="field_editeur">editeur</label>
             <select class="form-control" id="field_editeur" name="editeur" ng-model="livre.editeur"
                     ng-options="editeur as editeur.id for editeur in editeurs track by editeur.id">

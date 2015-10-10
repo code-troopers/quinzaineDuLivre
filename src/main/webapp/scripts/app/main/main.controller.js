@@ -6,4 +6,16 @@ angular.module('quinzaineDuLivreApp')
             $scope.account = account;
             $scope.isAuthenticated = Principal.isAuthenticated;
         });
+    })
+    .directive('filtreTable', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'scripts/app/main/filter.html'
+        };
+    })
+    .directive('tableListe', function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'scripts/app/main/table.html'
+        };
     });
