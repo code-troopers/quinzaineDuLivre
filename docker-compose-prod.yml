@@ -2,7 +2,7 @@ jhipster-prod-mysql:
   container_name: quinzaineDuLivre-prod-mysql
   image: mysql
   volumes:
-   - ~/prod-mysql/:/var/lib/mysql/
+   - ./prod-mysql/:/var/lib/mysql/
   environment:
   - MYSQL_USER=root
   - MYSQL_ALLOW_EMPTY_PASSWORD=yes
