@@ -158,6 +158,15 @@ public class ImportExcel {
                     }
                     livre.setPrix(prix);
 
+                    String url;
+                    try{
+                        url = row.getCell(15).getStringCellValue();
+                    }catch (NullPointerException e){
+                        url = "";
+                    }
+                    livre.setUrlImage(url);
+
+
                     livreList.add(livre);
 
                 }
