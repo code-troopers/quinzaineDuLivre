@@ -1,17 +1,26 @@
 # Developing quinzaineDuLivre
 
-TL;DR :
+# TL;DR :
 
-Mise en prod :
+# Mise en prod :
+
 avoir un docker à jour
+
 alias docker-compose='docker run -v "$(pwd)":"$(pwd)" -w $(pwd) -v /var/run/docker.sock:/var/run/docker.sock -e COMPOSE_PROJECT_NAME=$(basename "$(pwd)") -ti --rm dduportal/docker-compose:latest'
+
 git pull && docker-compose -f docker-compose-prod.yml build && docker-compose -f docker-compose-prod.yml up -d
+
 Importer la bonne image de couverture si c'est après l'édition 2015
+
 Importer le xls des bouquins
 
-update de mise en prod :
+
+# update de mise en prod :
+
 avoir un docker à jour
+
 alias docker-compose='docker run -v "$(pwd)":"$(pwd)" -w $(pwd) -v /var/run/docker.sock:/var/run/docker.sock -e COMPOSE_PROJECT_NAME=$(basename "$(pwd)") -ti --rm dduportal/docker-compose:latest'
+
 git pull && docker-compose -f docker-compose-prod.yml stop && docker-compose -f docker-compose-prod.yml rm -f && docker-compose -f docker-compose-prod.yml build && docker-compose -f docker-compose-prod.yml up -d
 
 
