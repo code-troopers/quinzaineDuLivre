@@ -123,5 +123,23 @@ angular.module('quinzaineDuLivreApp')
                         $state.go('^');
                     })
                 }]
+            })
+            .state('livre.uploadLogo', {
+                parent: 'livre',
+                url: '/upload/logo',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
+                    $modal.open({
+                        templateUrl: 'scripts/app/entities/livre/livre-logo-upload-dialog.html',
+                        controller: 'LivreLogoUploadDialogController',
+                        size: 'lg'
+                    }).result.then(function(result) {
+                        $state.go('livre', null, { reload: true });
+                    }, function() {
+                        $state.go('^');
+                    })
+                }]
             });
     });
