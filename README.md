@@ -24,6 +24,7 @@ avoir un docker à jour
 `git pull && docker-compose -f docker-compose-prod.yml stop && docker-compose -f docker-compose-prod.yml rm -f && docker-compose -f docker-compose-prod.yml build && docker-compose -f docker-compose-prod.yml up -d`
 
 
+# pour faire du dev
 
 `docker-compose build`
 
