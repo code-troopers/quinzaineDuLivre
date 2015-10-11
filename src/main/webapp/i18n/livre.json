@@ -6,7 +6,9 @@
                 "createLabel": "Créer un nouveau Livre",
                 "import": "Ré-importer tous les livres via XLS",
                 "importLabel": "Supprimer et Ré-importer tous les livres",
-                "createOrEditLabel": "Créer ou éditer un Livre"
+                "createOrEditLabel": "Créer ou éditer un Livre",
+                "logo":"Changer l'image principale",
+                "importLogoLabel":"Impoter une nouvelle image principale"
             },
             "created": "A new Livre is created with identifier {{ param }}",
             "updated": "A Livre is updated with identifier {{ param }}",
