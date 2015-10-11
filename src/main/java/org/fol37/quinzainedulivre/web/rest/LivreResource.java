@@ -94,7 +94,7 @@ public class LivreResource {
     @Timed
     public List<Livre> getAllLivres()
         throws URISyntaxException {
-        Sort sort = new Sort(Sort.Direction.ASC, "id"); //FIXME sort by num setted manually
+        Sort sort = new Sort(Sort.Direction.ASC, "id");
         return livreRepository.findAll(sort);
     }
 

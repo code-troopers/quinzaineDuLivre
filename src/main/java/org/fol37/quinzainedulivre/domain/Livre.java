@@ -12,11 +12,10 @@ import java.util.Objects;
 @Table(name = "livre")
 public class Livre implements Serializable {
 
+    //DO not set auto increment
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    
     @Column(name = "titre")
     private String titre;
     
