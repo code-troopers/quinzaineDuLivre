@@ -32,7 +32,7 @@ module.exports = function (config) {
             'main/webapp/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
             'main/webapp/bower_components/json3/lib/json3.js',
             'main/webapp/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
-            'main/webapp/bower_components/angular-file-upload/dist/angular-file-upload.min.js',
+            'main/webapp/bower_components/angular-base64-upload/src/angular-base64-upload.js',
             'main/webapp/bower_components/angular-mocks/angular-mocks.js',
             // endbower
             'main/webapp/scripts/app/app.js',

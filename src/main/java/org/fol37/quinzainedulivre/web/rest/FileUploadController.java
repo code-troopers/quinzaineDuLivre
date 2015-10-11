@@ -1,21 +1,26 @@
 package org.fol37.quinzainedulivre.web.rest;
 
 
+import org.fol37.quinzainedulivre.importXls.importexcel.ImportExcel;
+import org.fol37.quinzainedulivre.web.rest.dto.FileDTO;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Decoder;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+import javax.inject.Inject;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 
 @Controller
 @RequestMapping("/api")
 public class FileUploadController {
+
+    @Inject
+    ImportExcel importExcel;
 
     @RequestMapping(value="/upload", method=RequestMethod.GET)
     public @ResponseBody String provideUploadInfo() {
@@ -23,21 +28,16 @@ public class FileUploadController {
     }
 
     @RequestMapping(value="/upload", method=RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(@RequestParam("file") MultipartFile file){
-        String name ="myname";
-        if (!file.isEmpty()) {
-            try {
-                byte[] bytes = file.getBytes();
-                BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(name)));
-                stream.write(bytes);
-                stream.close();
-                return "You successfully uploaded " + name + "!";
-            } catch (Exception e) {
-                return "You failed to upload " + name + " => " + e.getMessage();
-            }
-        } else {
-            return "You failed to upload " + name + " because the file was empty.";
+    public @ResponseBody String handleFileUpload(@RequestBody FileDTO file){
+        String name = "name";
+        try {
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] bytes = decoder.decodeBuffer(file.getContent());
+            InputStream input = new ByteArrayInputStream(bytes);
+            importExcel.doImport(input);
+            return "You successfully uploaded " + name + "!";
+        } catch (Exception e) {
+            return "You failed to upload " + name + " => " + e.getMessage();
         }
     }
 

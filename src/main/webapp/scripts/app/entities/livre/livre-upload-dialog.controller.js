@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('quinzaineDuLivreApp').controller('LivreUploadDialogController',
-    ['$scope', '$stateParams', '$modalInstance', '$timeout', '$resource',
-        function ($scope, $stateParams, $modalInstance, $timeout, $resource) {
+    ['$scope', '$stateParams', '$modalInstance', '$timeout', '$resource', 'LivreFile',
+        function ($scope, $stateParams, $modalInstance, $timeout, $resource, LivreFile) {
 
             var onSaveFinished = function (result) {
                 $modalInstance.close(result);
@@ -20,31 +20,12 @@ angular.module('quinzaineDuLivreApp').controller('LivreUploadDialogController',
                 $modalInstance.dismiss('cancel');
             };
 
-            var Files = $resource('/api/upload/');
-
-            var model= { file: null, name: 'myfilename' }
-
             $scope.uploadFile = function () {
 
-                $.ajax( {
-                    url: '/api/upload',
-                    type: 'POST',
-                    file: model.file
-                } );
-
-                //upload({
-                //    url: '/api/upload',
-                //    method: 'POST',
-                //    data: {
-                //        file: $scope.myFile // a jqLite type="file" element, upload() will extract all the files from the input and put them into the FormData object before sending.
-                //    }
-                //}).then(
-                //    function (response) {
-                //        console.log(response.data); // will output whatever you choose to return from the server on a successful upload
-                //    },
-                //    function (response) {
-                //        console.error(response); //  Will return if status code is above 200 and lower than 300, same as $http
-                //    }
-                //);
+                var newFile = new LivreFile();
+                newFile.name = "aaaa";
+                newFile.content = $scope.file.base64;
+                newFile.$save();
             }
+            //FIME show result
         }]);

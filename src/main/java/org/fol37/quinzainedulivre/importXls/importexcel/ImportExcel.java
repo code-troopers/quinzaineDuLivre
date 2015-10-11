@@ -13,11 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +31,11 @@ public class ImportExcel {
     @Inject
     LivreService livreService;
 
-    @PostConstruct
-    public void doImport() {
+    public void doImport(InputStream xlsToImport) {
         log.debug("START  IMPORT XLS ");
         boolean addLivre = true;
         try {
-            FileInputStream in = new FileInputStream(new File("/home/fchauveau/dev/workspace/hackathon-quinzaineDuLivre/src/main/resources/selection.xls"));
-            Workbook excel = readExcelFile(in, "selection.xls");
+            Workbook excel = readExcelFile(xlsToImport, "selection.xls");
 
             Sheet sheet1 = excel.getSheet("selection");
 
@@ -151,7 +147,7 @@ public class ImportExcel {
     }
 
 
-    protected Workbook readExcelFile(FileInputStream in, String excelFileName) throws IOException {
+    protected Workbook readExcelFile(InputStream in, String excelFileName) throws IOException {
         Workbook workbook;
         try {
             if (excelFileName.endsWith(".xlsx")) {

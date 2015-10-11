@@ -18,4 +18,12 @@ angular.module('quinzaineDuLivreApp')
         return $resource('api/public/livres/', {}, {
             'query': { method: 'GET', isArray: true}
         });
-    });
+    })
+    .factory('LivreFile', ['$resource', function ($resource) {
+    return $resource('/api/upload', {},
+        {
+            'create': {method: 'POST'},
+            'update': {method: 'PUT'},
+            'delete': {method: 'DELETE'}
+        });
+}]);
