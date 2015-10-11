@@ -1,8 +1,8 @@
 <div class="row">
     <div ng-repeat="livre in livres | filter: filterFunction">
-        <div class="livre col-md-12">
+        <div class="livre col-md-12 vertical-center">
             <div class="col-md-3">
-                <img class="cover" src="{{livre.urlImage}}"/>
+                <img class="cover" src="{{livre.urlImage}}" ng-if="livre.urlImage"/>
             </div>
             <div class="col-md-9" ng-class="{
                 coeur: livre.coupCoeur

@@ -186,6 +186,10 @@ ul#strength {
     background: url("../images/module_box_transparency50.png") 0 0 repeat;
     padding: 20px;
     margin-bottom: 20px;
+
+    .title {
+        margin-top: 0px;
+    }
 }
 
 .navbar-default {
@@ -231,4 +235,9 @@ ul#strength {
         padding-left: 4px;
         padding-right: 4px;
     }
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
 }
