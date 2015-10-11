@@ -14,9 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
-import javax.validation.constraints.Null;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -33,6 +30,8 @@ public class ImportExcel {
     DbService dbService;
     @Inject
     LivreService livreService;
+    @Inject
+    Truncate truncate;
 
     private final static int COL_ID=0;
     private final static int COL_CODE_BARRE=1;
@@ -53,6 +52,8 @@ public class ImportExcel {
     public void doImport(InputStream xlsToImport) {
         log.debug("START  IMPORT XLS ");
         try {
+            truncate.truncate();
+
             Workbook excel = readExcelFile(xlsToImport, "selection.xls");
 
             Sheet sheet1 = excel.getSheet("selection");
