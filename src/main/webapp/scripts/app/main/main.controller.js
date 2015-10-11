@@ -54,50 +54,64 @@ angular.module('quinzaineDuLivreApp')
         }
 
         $scope.filterFunction = function (element) {
-            var noFiltersActive = true;
+            var matchAllFilters = true;
             if (isFilterSetted($scope.filter.categorie)) {
-                noFiltersActive = false;
+                matchAllFilters = false;
                 if (isObjectValueDefined(element.categorie) && element.categorie.id == $scope.filter.categorie.id) {
-                    return true;
+                    matchAllFilters = true;
+                } else {
+                    return false;
                 }
             }
             if (isFilterSetted($scope.filter.age)) {
-                noFiltersActive = false;
+                matchAllFilters = false;
                 if (isObjectValueDefined(element.age) && element.age.id == $scope.filter.age.id) {
-                    return true;
+                    matchAllFilters = true;
+                } else {
+                    return false;
                 }
             }
             if (isFilterSetted($scope.filter.coupCoeur)) {
-                noFiltersActive = false;
+                matchAllFilters = false;
                 if (element.coupCoeur == true) {
-                    return true;
+                    matchAllFilters = true;
+                } else {
+                    return false;
                 }
             }
             if (isFilterSetted($scope.filter.titre)) {
-                noFiltersActive = false;
+                matchAllFilters = false;
                 if (isObjectValueDefined(element.titre) && element.titre.match(new RegExp($scope.filter.titre, "i"))) {
-                    return true;
+                    matchAllFilters = true;
+                } else {
+                    return false;
                 }
             }
             if (isFilterSetted($scope.filter.editeur)) {
-                noFiltersActive = false;
+                matchAllFilters = false;
                 if (isObjectValueDefined(element.editeur) && element.editeur.id == $scope.filter.editeur.id) {
-                    return true;
+                    matchAllFilters = true;
+                } else {
+                    return false;
                 }
             }
             if (isFilterSetted($scope.filter.auteurs)) {
-                noFiltersActive = false;
+                matchAllFilters = false;
                 if (isObjectValueDefined(element.auteurs) && element.auteurs.match(new RegExp($scope.filter.auteurs, "i"))) {
-                    return true;
+                    matchAllFilters = true;
+                } else {
+                    return false;
                 }
             }
             if (isFilterSetted($scope.filter.illustrateur)) {
-                noFiltersActive = false;
+                matchAllFilters = false;
                 if (isObjectValueDefined(element.illustrateur) && element.illustrateur.match(new RegExp($scope.illustrateur.auteurs, "i"))) {
-                    return true;
+                    matchAllFilters = true;
+                } else {
+                    return false;
                 }
             }
-            return noFiltersActive;
+            return matchAllFilters;
         };
     })
     .directive('booksFilter', function () {

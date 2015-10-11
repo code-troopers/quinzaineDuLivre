@@ -1,6 +1,16 @@
 <div class="row livre">
     <form name="queryBooks" role="form" novalidate ng-submit="search()">
         <div class="row">
+            <div class="form-group col-md-12">
+                <label translate="quinzaineDuLivreApp.livre.titre" for="field_titre">Titre</label>
+                <input type="text"
+                       class="form-control"
+                       name="titre"
+                       id="field_titre"
+                       ng-model="filter.titre">
+            </div>
+        </div>
+        <div class="row">
 
             <div class="form-group col-md-4">
                 <label translate="quinzaineDuLivreApp.livre.categorie" for="field_categorie">categorie</label>
@@ -29,19 +39,10 @@
                        name="coupCoeur"
                        id="field_coupCoeur"
                        ng-model="filter.coupCoeur"
-                    >
+                >
             </div>
         </div>
-        <div class="row">
-            <div class="form-group col-md-4">
-                <label translate="quinzaineDuLivreApp.livre.titre" for="field_titre">Titre</label>
-                <input type="text"
-                       class="form-control"
-                       name="titre"
-                       id="field_titre"
-                       ng-model="filter.titre">
-            </div>
-        </div>
+
         <div class="row">
             <div class="form-group col-md-4">
                 <label translate="quinzaineDuLivreApp.livre.auteurs" for="field_auteurs">Auteurs</label>
@@ -72,10 +73,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="pull-right">
-                <button type="button" class="btn btn-danger" translate="entity.action.reset"
-                        ng-click="resetFilter()"></button>
-                <button type="submit" class="btn btn-primary" translate="entity.action.search"></button>
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button type="button" class="btn btn-danger" translate="entity.action.reset"
+                            ng-click="resetFilter()"></button>
+                    <button type="submit" class="btn btn-primary" translate="entity.action.search"></button>
+                </div>
             </div>
         </div>
 
