@@ -3,6 +3,8 @@ package org.fol37.quinzainedulivre.web.rest;
 
 import org.fol37.quinzainedulivre.importXls.importexcel.ImportExcel;
 import org.fol37.quinzainedulivre.web.rest.dto.FileDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,16 +30,16 @@ public class FileUploadController {
     }
 
     @RequestMapping(value="/upload", method=RequestMethod.POST)
-    public @ResponseBody String handleFileUpload(@RequestBody FileDTO file){
+    public @ResponseBody ResponseEntity<Void> handleFileUpload(@RequestBody FileDTO file){
         String name = "name";
         try {
             BASE64Decoder decoder = new BASE64Decoder();
             byte[] bytes = decoder.decodeBuffer(file.getContent());
             InputStream input = new ByteArrayInputStream(bytes);
             importExcel.doImport(input);
-            return "You successfully uploaded " + name + "!";
+            return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return "You failed to upload " + name + " => " + e.getMessage();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
