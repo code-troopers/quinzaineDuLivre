@@ -1,4 +1,8 @@
 <div class="row">
+    <div ng-hide="loaded">
+        <!-- do not remove empty divs-->
+        <div class="center-block uil-spin-css" style='-webkit-transform:scale(0.64)'><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div>
+    </div>
     <div ng-repeat="livre in livres | filter: filterFunction">
         <div class="livre col-md-12 vertical-center">
             <div class="col-md-3">

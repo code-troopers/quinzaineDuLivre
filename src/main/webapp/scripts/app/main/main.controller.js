@@ -24,6 +24,7 @@ angular.module('quinzaineDuLivreApp')
         $scope.loadAll = function () {
             AllLivres.query({page: $scope.page, size: 20}, function (result) {
                 $scope.livres = result;
+                $scope.loaded = true;
             });
         };
         $scope.reset = function () {
