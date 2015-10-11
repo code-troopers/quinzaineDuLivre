@@ -34,6 +34,22 @@ public class ImportExcel {
     @Inject
     LivreService livreService;
 
+    private final static int COL_ID=0;
+    private final static int COL_CODE_BARRE=1;
+    private final static int COL_CODE_CATEGORIE=2;
+    private final static int COL_COUP_AGE=3;
+    private final static int COL_COUP_COEUR=4;
+    private final static int COL_COUP_TITRE=5;
+    private final static int COL_COUP_SOUS_TITRE=6;
+    private final static int COL_COUP_AUTEUR=7;
+    private final static int COL_COUP_ILLUSTRATEUR=8;
+    private final static int COL_COUP_EDITEUR=9;
+    private final static int COL_COUP_RESUME=10;
+    private final static int COL_COUP_COMMENTAIRE=11;
+    private final static int COL_COUP_HDV=12;
+    private final static int COL_COUP_PRIX=13;
+    private final static int COL_COUP_URL=14;
+
     public void doImport(InputStream xlsToImport) {
         log.debug("START  IMPORT XLS ");
         try {
@@ -49,16 +65,16 @@ public class ImportExcel {
                     Livre livre = new Livre();
 
                     //id
-                    Double idLivre = row.getCell(0).getNumericCellValue();
+                    Double idLivre = row.getCell(COL_ID).getNumericCellValue();
                     livre.setId(idLivre.longValue());
 
                     //codeBarre
                     String codeBarre;
                     try {
-                        codeBarre = row.getCell(1).getStringCellValue();
+                        codeBarre = row.getCell(COL_CODE_BARRE).getStringCellValue();
                     } catch (IllegalStateException e) {
                         try {
-                            codeBarre = new BigDecimal(row.getCell(1).getNumericCellValue()).toPlainString();
+                            codeBarre = new BigDecimal(row.getCell(COL_CODE_BARRE).getNumericCellValue()).toPlainString();
                         } catch (Exception ex) {
                             codeBarre = "";
                         }
@@ -66,32 +82,32 @@ public class ImportExcel {
                     livre.setCodeBarre(codeBarre.trim());
 
                     //categorie
-                    String sCategorie = row.getCell(2).getStringCellValue();
+                    String sCategorie = row.getCell(COL_CODE_CATEGORIE).getStringCellValue();
                     Categorie categorie = dbService.getOrAddCategorieByLibelle(sCategorie);
                     livre.setCategorie(categorie);
 
 
                     //age
-                    String sAge = row.getCell(3).getStringCellValue();
+                    String sAge = row.getCell(COL_COUP_AGE).getStringCellValue();
                     Age age = dbService.getOrAddAgeByLibelle(sAge);
                     livre.setAge(age);
 
                     //Coup de coeur
                     boolean coupDeCoeur;
                     try{
-                        coupDeCoeur = ouiToTrue(row.getCell(4).getStringCellValue());
+                        coupDeCoeur = ouiToTrue(row.getCell(COL_COUP_COEUR).getStringCellValue());
                     }catch (Exception e){
                         coupDeCoeur = false;
                     }
                     livre.setCoupCoeur(coupDeCoeur);
 
                     //titre
-                    livre.setTitre(row.getCell(6).getStringCellValue().trim());
+                    livre.setTitre(row.getCell(COL_COUP_TITRE).getStringCellValue().trim());
 
                     //Soustitre
                     String sousTitre;
                     try {
-                        sousTitre = row.getCell(7).getStringCellValue().trim();
+                        sousTitre = row.getCell(COL_COUP_SOUS_TITRE).getStringCellValue().trim();
                     }catch (NullPointerException e){
                         sousTitre="";
                     }
@@ -100,7 +116,7 @@ public class ImportExcel {
                     //Auteurs
                     String auteurs;
                     try {
-                        auteurs = row.getCell(8).getStringCellValue().trim();
+                        auteurs = row.getCell(COL_COUP_AUTEUR).getStringCellValue().trim();
                     }catch (NullPointerException e){
                         auteurs = "";
                     }
@@ -109,7 +125,7 @@ public class ImportExcel {
                     //Illustrateur
                     String illustrateur;
                     try {
-                        illustrateur = row.getCell(9).getStringCellValue();
+                        illustrateur = row.getCell(COL_COUP_ILLUSTRATEUR).getStringCellValue();
                     } catch (NullPointerException e) {
                         illustrateur = "";
                     }
@@ -117,7 +133,7 @@ public class ImportExcel {
 
                     //Editeur
                     String sEditeur;
-                    sEditeur = row.getCell(10).getStringCellValue().trim();
+                    sEditeur = row.getCell(COL_COUP_EDITEUR).getStringCellValue().trim();
                     sEditeur = firstLetterCapitalize(sEditeur);
                     Editeur editeur = dbService.getOrAddEditeurByLibelle(sEditeur);
                     livre.setEditeur(editeur);
@@ -125,7 +141,7 @@ public class ImportExcel {
                     //resume
                     String resume;
                     try{
-                        resume = row.getCell(11).getStringCellValue();
+                        resume = row.getCell(COL_COUP_RESUME).getStringCellValue();
                     }catch (NullPointerException e){
                         resume="";
                     }
@@ -134,7 +150,7 @@ public class ImportExcel {
                     //Commentaires
                     String commentaires;
                     try{
-                        commentaires = row.getCell(12).getStringCellValue();
+                        commentaires = row.getCell(COL_COUP_COMMENTAIRE).getStringCellValue();
                     }catch (NullPointerException e){
                         commentaires="";
                     }
@@ -143,7 +159,7 @@ public class ImportExcel {
                     // reserve HDV
                     String reserveHdv;
                     try {
-                        reserveHdv = row.getCell(13).getStringCellValue();
+                        reserveHdv = row.getCell(COL_COUP_HDV).getStringCellValue();
                     } catch (Exception e) {
                         reserveHdv = "";
                     }
@@ -152,7 +168,7 @@ public class ImportExcel {
                     // prix
                     double prix;
                     try {
-                        prix = row.getCell(14).getNumericCellValue();
+                        prix = row.getCell(COL_COUP_PRIX).getNumericCellValue();
                     } catch (Exception e) {
                         prix = 0;
                     }
@@ -160,13 +176,11 @@ public class ImportExcel {
 
                     String url;
                     try{
-                        url = row.getCell(15).getStringCellValue();
+                        url = row.getCell(COL_COUP_URL).getStringCellValue();
                     }catch (NullPointerException e){
                         url = "";
                     }
                     livre.setUrlImage(url);
-
-
                     livreList.add(livre);
 
                 }
