@@ -65,7 +65,7 @@ public class FileUploadController {
             }
 
             String currentDir = System.getProperty("user.dir");
-            File finalFile = new File(currentDir + "/src/main/webapp/assets/images/couverture.png");
+            File finalFile = new File(currentDir + "/src/main/webapp/dist/assets/images/couverture.png");
             Files.move(tmpFile, finalFile);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
