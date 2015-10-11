@@ -2,7 +2,7 @@
     <div ng-repeat="livre in livres | filter: filterFunction">
         <div class="livre col-md-12 vertical-center">
             <div class="col-md-3">
-                <img class="cover" src="{{livre.urlImage}}" ng-if="livre.urlImage"/>
+                <img ng-if="livre.urlImage" class="cover" src="{{livre.urlImage}}"/>
             </div>
             <div class="col-md-9" ng-class="{
                 coeur: livre.coupCoeur
@@ -20,7 +20,6 @@
                             <span class="glyphicon glyphicon-heart-empty fa-big"></span>
                             <span class="glyphicon glyphicon-heart-empty fa-big"></span>
                             <span class="glyphicon glyphicon-heart-empty fa-big"></span>
-                            <span class="glyphicon glyphicon-heart-empty fa-big"></span>
                         </div>
                         <div class="col-sm-11">
                             <div class="resume">{{livre.resume}}</div>
@@ -28,7 +27,7 @@
                             <div class="price">prix : {{livre.prix}} €</div>
                             <div>Categorie : {{livre.categorie.libelle}}</div>
                             <div>Age : {{livre.age.libelle}}</div>
-                            <div ng-if="livre.reserveHDV"><span class="glyphicon glyphicon-alert"></span> Titre visible sur les temps forts</div>
+                            <div ng-show="livre.reserveHDV"><span class="glyphicon glyphicon-alert"></span> Titre visible sur les temps forts</div>
                         </div>
                     </div>
                 </div>

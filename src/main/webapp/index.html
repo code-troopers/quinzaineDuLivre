@@ -24,8 +24,8 @@
         <![endif]-->
         <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
         <div ui-view="navbar" ng-cloak=""></div>
-        <div class="maincover container" ng-if="MAINPAGE" >
-            <img src="assets/images/couverture.png"/>
+        <div class="container" ng-if="MAINPAGE" style="padding-left: 20px;padding-right:20px;">
+            <div class="maincover"></div>
         </div>
         <div ng-class="{
         container: MAINPAGE
